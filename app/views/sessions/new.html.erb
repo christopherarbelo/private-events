@@ -1,0 +1,6 @@
+<h1>Login</h1>
+<%= form_with url: '/sessions', method: :post do |form| %>
+  <%= form.label :current_user_id, 'Enter a user id' %>
+  <%= form.text_field :current_user_id %>
+  <%= form.submit 'Login' %>
+<% end %>
