@@ -1,2 +1,10 @@
-<h1>Show</h1>
-<p>Username: <%= @user.username %></p>
+<h1>Hosted Events</h1>
+<section id="hosted-events">
+  <% if @user.hosted_events.length.positive? %>
+    <% @user.hosted_events.each do |event| %>
+      <article class="event"><%= event.date %> | <%= event.location %></article>
+    <% end %>
+  <% else %>
+    <p>You don't have any hosted events. :(</p>
+  <% end %>
+</section>

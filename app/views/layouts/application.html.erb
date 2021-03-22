@@ -16,7 +16,7 @@
     <% end -%>
     <nav>
       <% if signed_in? %>
-        <p id="user"><%= current_user.name %> | <%= link_to 'log out', session_path(current_user.id), method: :delete %></p>
+        <p id="user">Hi, <%= current_user.name %>! | <%= link_to 'log out', session_path(current_user.id), method: :delete %></p>
       <% else %>
         <%= link_to 'log in', new_session_path %>
       <% end %>
