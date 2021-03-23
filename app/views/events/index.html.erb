@@ -1,0 +1,10 @@
+<h1>Events</h1>
+<section id="events">
+  <ul>
+    <% @events.each do |event| %>
+      <li>Host: <%= event.host.name %> | <%= event.date %> | <%= event.location %> | <%= link_to 'Event Link', event %></li>
+    <% end %>
+  </ul>
+</section>
+
+<%= link_to 'Create an event', new_event_path %>

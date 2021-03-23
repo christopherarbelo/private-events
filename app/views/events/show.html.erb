@@ -1,0 +1,14 @@
+<h1>Event</h1>
+<section id="event">
+  <p id="location">Location: <%= @event.location %></p>
+  <p id="date">Date: <%= @event.date %></p>
+  <p id="host">Host: <%= @event.host.name %></p>
+  <section id="attendees">
+    <h2>Attendees</h3>
+  </section>
+</section>
+
+<% if signed_in? && @event.host.id == current_user.id %>
+<%= link_to 'Delete', event_path(@event), method: :delete %> |
+<% end %>
+<%= link_to 'All events', events_path %>

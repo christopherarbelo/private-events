@@ -15,11 +15,13 @@
       <%= content_tag :div, msg, class: name %>
     <% end -%>
     <nav>
+      <p><%= link_to 'Home', root_path %> |
       <% if signed_in? %>
-        <p id="user">Hi, <%= current_user.name %>! | <%= link_to 'log out', session_path(current_user.id), method: :delete %></p>
+        Hi, <%= current_user.name %>! | <%= link_to 'log out', session_path(current_user.id), method: :delete %>
       <% else %>
         <%= link_to 'log in', new_session_path %>
       <% end %>
+      </p>
     </nav>
     <%= yield %>
   </body>
