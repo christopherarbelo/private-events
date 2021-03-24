@@ -2,9 +2,14 @@
 <section id="event">
   <p id="location">Location: <%= @event.location %></p>
   <p id="date">Date: <%= @event.date %></p>
-  <p id="host">Host: <%= @event.host.name %></p>
-  <section id="attendees">
-    <h2>Attendees</h3>
+  <p id="host">Host: <%= link_to @event.host.name, user_path(@event.host.id) %></p>
+  <section id="invites">
+    <h2>Invites</h3>
+    <ul>
+      <% @event.guests.each do |guest| %>
+      <li><%= guest.name %></li>
+      <% end %>
+    </ul>
   </section>
 </section>
 

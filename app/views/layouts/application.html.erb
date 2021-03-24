@@ -17,7 +17,7 @@
     <nav>
       <p><%= link_to 'Home', root_path %> |
       <% if signed_in? %>
-        Hi, <%= current_user.name %>! | <%= link_to 'log out', session_path(current_user.id), method: :delete %>
+        Hi, <%= link_to current_user.name, user_path(current_user.id) %>! | <%= link_to 'log out', session_path(current_user.id), method: :delete %>
       <% else %>
         <%= link_to 'log in', new_session_path %>
       <% end %>
