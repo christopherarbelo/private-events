@@ -4,6 +4,10 @@
   <%= form.date_field :date %><br>
   <%= form.label :location, 'Enter location' %>
   <%= form.text_field :location %><br>
+  <%= form.fields_for :invitations do |invite_form| %>
+    <%= invite_form.label :guest_id %>
+    <%= invite_form.text_field :guest_id %>
+  <% end %>
   <%= form.submit %>
 <% end %>
 

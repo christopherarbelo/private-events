@@ -13,12 +13,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.invitations.build
   end
 
   def create
     @event = current_user.hosted_events.build(event_params)
+    @invitation = @event.invitations.build(invitation_params)
 
-    if @event.save
+    if @event.save && @invitation.save
       flash[:notice] = 'Event created!'
       redirect_to @event
     else
@@ -37,6 +39,10 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:date, :location)
+  end
+
+  def invitation_params
+    params.require(:event).permit(invitations_attributes: [:guest_id])
   end
 
   def require_ownership
